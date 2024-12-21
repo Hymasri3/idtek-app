@@ -149,7 +149,7 @@ const forgotPassword=async(req,res)=>{
         }
         const secret=process.env.JWT_SECRET+oldUser.password;
         const token=jwt.sign({email:oldUser.email,id:oldUser._id},secret,{expiresIn:"5m"})
-        const link=`${process.env.BASE_URL}/api/reset-password/${oldUser._id}/${token}`;
+        const link=`${process.env.BASE_URL}api/reset-password/${oldUser._id}/${token}`;
         await sendEmail(oldUser.email,"password reset",link) 
     }
     catch(error){
