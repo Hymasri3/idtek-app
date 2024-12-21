@@ -141,6 +141,7 @@ const address=async(req,res)=>{
 }
 
 const forgotPassword=async(req,res)=>{ 
+    res.send("hiii");
     const {email}=req.body;
     try{
         const oldUser =await UserModel.findOne({email});
