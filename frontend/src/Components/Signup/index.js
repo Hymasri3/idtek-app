@@ -40,8 +40,8 @@ const Signup = () => {
             return handleError("name,email,password and phoneNummber required");
         }
         try {
-            //const url = "https://id-ruddy.vercel.app/api/users";
-            const url = "http://localhost:8080/api/users";
+            const url = "https://idtek-app.vercel.app/api/users";
+           // const url = "http://localhost:8080/api/users";
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
