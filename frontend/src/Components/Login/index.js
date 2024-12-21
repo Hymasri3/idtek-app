@@ -43,8 +43,8 @@ const Login = () => {
             return handleError("email,password  required");
         }
         try {
-            //const url = "https://id-ruddy.vercel.app/api/auth";
-            const url = "http://localhost:8080/api/auth";
+            const url = "https://idtek-app.vercel.app/api/auth";
+            //const url = "http://localhost:8080/api/auth";
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
