@@ -141,21 +141,20 @@ const address=async(req,res)=>{
 }
 
 const forgotPassword=async(req,res)=>{ 
-    res.send("hiii");
-    // const {email}=req.body;
-    // try{
-    //     const oldUser =await UserModel.findOne({email});
-    //     if(!oldUser){
-    //         return res.json({status:"User not Exist"});
-    //     }
-    //     const secret=process.env.JWT_SECRET+oldUser.password;
-    //     const token=jwt.sign({email:oldUser.email,id:oldUser._id},secret,{expiresIn:"5m"})
-    //     const link=`${process.env.BASE_URL}/api/reset-password/${oldUser._id}/${token}`;
-    //     await sendEmail(oldUser.email,"password reset",link) 
-    // }
-    // catch(error){
+    const {email}=req.body;
+    try{
+        const oldUser =await UserModel.findOne({email});
+        if(!oldUser){
+            return res.json({status:"User not Exist"});
+        }
+        const secret=process.env.JWT_SECRET+oldUser.password;
+        const token=jwt.sign({email:oldUser.email,id:oldUser._id},secret,{expiresIn:"5m"})
+        const link=`${process.env.BASE_URL}/api/reset-password/${oldUser._id}/${token}`;
+        await sendEmail(oldUser.email,"password reset",link) 
+    }
+    catch(error){
 
-    // }
+    }
 }
 
 const reset=async(req,res)=>{
