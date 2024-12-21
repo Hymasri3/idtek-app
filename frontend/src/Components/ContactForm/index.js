@@ -56,7 +56,8 @@ const ContactForm = () => {
             return handleError("name,email and Address required");
         }
         try {
-            const url = "http://localhost:8080/api/address";
+            //const url = "http://localhost:8080/api/address";
+            const url="https://idtek-app.vercel.app/api/address";
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
@@ -98,7 +99,8 @@ const ContactForm = () => {
     const fetchProducts = async () => {
 
         try {
-            const url = 'http://localhost:8080/address/';
+            //const url = 'http://localhost:8080/address/';
+            const url="https://idtek-app.vercel.app/address/";
             const options = {
                 method: "GET",
                 headers: {
@@ -142,7 +144,7 @@ const ContactForm = () => {
 
     const deleteItem = async (email) => {
         try {
-            const response = await fetch(`http://localhost:8080/address/${email}`, {
+            const response = await fetch(`https://idtek-app.vercel.app/address/${email}`, {
                 method: 'DELETE'
             });
             setAddressList(addressList.filter(addresss => addresss.email !== email))
