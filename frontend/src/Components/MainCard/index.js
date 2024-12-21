@@ -15,7 +15,7 @@ const Cards = () => {
     }, [id])
 
     const getCard = async () => {
-        const response = await fetch(`http://localhost:8080/home/api/${id}`, {
+        const response = await fetch(`https://idtek-app.vercel.app/home/api/${id}`, {
             method: "GET",
         })
         const data = await response.json()
