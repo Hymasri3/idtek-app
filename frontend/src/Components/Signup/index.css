@@ -1,0 +1,56 @@
+
+.signup{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+.sign-container{
+    background-color: #fff;
+    padding: 32px;
+    border-radius: 10px;
+    max-width:70%;
+    /* max-width: 50px; */
+    box-shadow: 8px 8px 24px 0px rgba(66,68,90,1);
+}
+
+.sign-container >h1{
+    margin-bottom:20px;
+}
+/* .container >form{
+    display: flex;
+    flex-direction: column;
+} */
+ .phoneNum{
+    margin-top: 10px;
+    
+ }
+.sign-container input{
+    width:100%;
+    font-size:20px;
+    padding:10px;
+    border:none;
+    outline:none;
+    border-bottom:1px solid black;
+}
+.sign-container input::placeholder{
+    font-size: 12px;
+    font-style: italic;
+}
+.sign-button{
+    background-color: blueviolet;
+    border:none;
+    font-size:20px;
+    color:white;
+    width:70%;
+    border-radius: 5px;
+    padding:10px;
+    cursor:pointer;
+    margin:7px 0;
+}
+.btn-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

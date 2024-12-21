@@ -1,0 +1,95 @@
+.contact-form{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    max-width:1000px;
+    max-height:700px;
+}
+.c-form{
+    max-width: 800px;
+    width:100%;
+    background-color: #fff;
+    padding:25px 25px 30px;
+    border-radius:8px;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+    color:#333;
+    margin:25px;
+}
+form h2{
+    font-size:30px;
+    text-align:center;
+}
+form .input-box{
+    margin-top:20px;
+}
+.input-box .field{
+    width:80%;
+    height:30px;
+    background-color: transparent;
+    border:2px solid  #ddd;
+    outline: none;
+    border-radius:6px;
+    padding:15px;
+    font-size: 16px;
+    color:#333;
+    margin-top: 8px;
+}
+.input-box .field.mess{
+    height:100px;
+    resize:none;
+}
+.input-box .field.mess .add{
+  display: flex;
+}
+.submit-btn{
+    width:50%;
+    height:55px;
+    background-color: #826afb;
+    border:none;
+    border-radius: 0 0 10px rgba(0,0,0,.1);
+    cursor:pointer;
+    font-size:16px;
+    color:#fff;
+    font-weight:500;
+    margin-top: 25px;
+    
+}
+
+.addBtn{
+    background-color: transparent;
+    color:black;
+    width:100px;
+    border:1px solid black;
+    border-radius: 8px;
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+
+}
+.form-split{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.first-half{
+    width:50%;
+}
+.second-half{
+    width:50%;
+}
+.address-item{
+    list-style-type:none;
+}
+.address-list{
+    border:1px solid;
+    border-radius: 10px;
+    box-shadow: 8px 8px 24px 0px rgba(66,68,90,1);
+    margin:10px;
+    max-width:300px;
+    padding:20px;
+    
+}
+.delete-btn{
+    background-color: transparent;
+    color:black;
+}

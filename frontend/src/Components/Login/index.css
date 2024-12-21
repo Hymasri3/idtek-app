@@ -1,0 +1,12 @@
+.login{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+.checkbox{
+    width:15px;
+    height:15px;
+    margin-top: 7px;
+    margin-right:4px ;
+}
