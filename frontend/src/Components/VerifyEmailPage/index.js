@@ -9,7 +9,7 @@ const VerifyEmailPage = () => {
   useEffect(() => {
     const verifyEmailUrl = async () => {
       try {
-        const url = `http://localhost:8080/users/${param.id}/verify/${param.token}`;
+        const url = `https://idtek-app.vercel.app/users/${param.id}/verify/${param.token}`;
         const { data } = await fetch(url, {
           method: 'GET'
         })
