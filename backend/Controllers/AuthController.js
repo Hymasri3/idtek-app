@@ -140,22 +140,32 @@ const address=async(req,res)=>{
     }
 }
 
-const forgotPassword=async(req,res)=>{ 
-    const {email}=req.body;
-    console.log("forgot")
-    // try{
-    //     const oldUser =await UserModel.findOne({email});
-    //     if(!oldUser){
-    //         return res.json({status:"User not Exist"});
-    //     }
-    //     const secret=process.env.JWT_SECRET+oldUser.password;
-    //     const token=jwt.sign({email:oldUser.email,id:oldUser._id},secret,{expiresIn:"5m"})
-    //     const link=`${process.env.BASE_URL}api/reset-password/${oldUser._id}/${token}`;
-    //     await sendEmail(oldUser.email,"password reset",link) 
-    // }
-    // catch(error){
 
-    // }
+const forgotPassword = async (req, res) => {
+    const { email } = req.body;
+    console.log(email)
+    try {
+        const oldUser = await UserModel.findOne({ email });
+        if (!oldUser) {
+            return res.json({ message: "User not Exist" });
+        }
+        const secret = process.env.JWT_SECRET + oldUser.password;
+        const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, { expiresIn: "5m" })
+        const link = `${process.env.BASE_URL}api/reset-password/${oldUser._id}/${token}`;
+        await sendEmail(oldUser.email, "password reset", link)
+        res.status(201)
+            .json({
+                message: 'An email sent to your account please verify',
+                success: true
+            })
+    }
+    catch (error) {
+        res.status(500)
+            .json({
+                message: 'An Email Not sent',
+                success: false
+            })
+    }
 }
 
 const reset=async(req,res)=>{
