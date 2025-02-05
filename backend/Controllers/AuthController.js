@@ -160,7 +160,7 @@ const forgotPassword = async (req, res) => {
             })
     }
     catch (error) {
-        res.status(500)
+        res.status(400)
             .json({
                 message: 'An Email Not sent',
                 success: false
