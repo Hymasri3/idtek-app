@@ -6,6 +6,8 @@ import { handleError, handleSuccess } from '../../utils'
 const ForgotPassword = () => {
 
     const [email, setEmail] = useState('');
+    const[msg,setMsg]=useState('')
+    
 
     const navigate = useNavigate();
 
@@ -20,13 +22,11 @@ const ForgotPassword = () => {
         const data = { email };
         console.log(data);
         if (!email) {
-            return handleError("email  required");
+            return handleError("Email required");
         }
         try {
-            //const url = "http://localhost:8080/api/forgot-password";
-            const url = "https://idtek-app.vercel.app/api/forgot-password";
+            const url = "http://localhost:8080/api/forgot-password";
             const response = await fetch(url, {
-                mode: 'no-cors',
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -34,25 +34,27 @@ const ForgotPassword = () => {
                 body: JSON.stringify(data)
             });
             const res = await response.json();
-            console.log(res)
-            // const {success,message,error,jwtToken,name,email}=res;
+            
+            console.log("forgot--",res)
+            const {success,message,error}=res;
+            setMsg(res.message)
             // alert(res.status);
-            // if(success){
-            //     handleSuccess(message);
-            //     localStorage.setItem('token',jwtToken)
-            //     localStorage.setItem('name',name)
-            //     localStorage.setItem('email',email)
+            if(success){  
+                handleSuccess(message);
+                // localStorage.setItem('token',jwtToken)
+                // localStorage.setItem('name',name)
+                // localStorage.setItem('email',email)
 
-            //     setTimeout(()=>{
-            //         navigate('/');
-            //     },1000)
-            // }else if(error){
-            //     const details=error?.details[0].message;
-            //     handleError(details);
-            // }else if(!success)
-            // {
-            //     handleError(message);
-            // }
+                // setTimeout(()=>{
+                //     navigate('/login');
+                // },1000)
+            }else if(error){
+                const details=error?.details[0].message;
+                handleError(details);
+            }else if(!success)
+            {
+                handleError(message);
+            }
 
         } catch (err) {
             handleError(err);
