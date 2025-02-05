@@ -148,11 +148,13 @@ const forgotPassword = async (req, res) => {
         const oldUser = await UserModel.findOne({ email });
         if (!oldUser) {
             return res.json({ message: "User not Exist" });
+            console.log("user not exist");
         }
         const secret = process.env.JWT_SECRET + oldUser.password;
         const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, { expiresIn: "5m" })
         const link = `${process.env.BASE_URL}api/reset-password/${oldUser._id}/${token}`;
         await sendEmail(oldUser.email, "password reset", link)
+        console.log('An email sent to your account please verify');
         res.status(201)
             .json({
                 message: 'An email sent to your account please verify',
