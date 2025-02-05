@@ -26,7 +26,7 @@ const signup=async(req,res)=>{
         await sendEmail(user.email,"Verify Email",url)
         res.status(201)
             .json({
-                message: 'url',
+                message: url,
                 success:true
             })
     }
