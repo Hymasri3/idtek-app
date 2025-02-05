@@ -27,6 +27,7 @@ const ForgotPassword = () => {
         try {
             const url = "https://idtek-app.vercel.app/api/forgot-password";
             const response = await fetch(url, {
+                mode: 'no-cors',
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
