@@ -34,7 +34,7 @@ const signup=async(req,res)=>{
         
         res.status(500)
         .json({
-            message:res.status,
+            message:'Internal Server Error',
             success:false
         })
     }
